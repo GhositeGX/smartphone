@@ -3,202 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechPhone Pro - Checkout</title>
+    <title>Checkout - TechPhone Pro</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
             margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-            color: #1d1d1f;
-            line-height: 1.47059;
-            font-weight: 400;
-            letter-spacing: -.022em;
+            padding: 20px;
+            background-color: #f4f4f4;
         }
-        header {
-            background-color: rgba(0,0,0,0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            color: #f5f5f7;
-            text-align: center;
-            padding: 0.8rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            font-size: 0.8rem;
-        }
-        nav a {
-            color: #f5f5f7;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-        nav a:hover {
-            opacity: 1;
-        }
-        main {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-        .checkout-container {
+        .container {
             max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .checkout-section {
-            margin-bottom: 2rem;
+        .cart-summary, .payment-options, .shipping-form {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
         }
-        .checkout-section h2 {
-            border-bottom: 1px solid #d2d2d7;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
+        .cart-summary img {
+            max-width: 100px;
+            float: left;
+            margin-right: 15px;
         }
-        .form-group {
-            margin-bottom: 1rem;
+        .cart-details {
+            overflow: hidden;
         }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
+        h1, h2 {
+            color: #333;
         }
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #d2d2d7;
-            border-radius: 4px;
-            font-size: 1rem;
+        .total {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 10px;
         }
-        .place-order-btn {
-            background-color: #0071e3;
-            color: white;
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
             border: none;
-            padding: 0.8rem 2rem;
-            font-size: 1.1rem;
-            border-radius: 980px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            font-size: 16px;
         }
-        .place-order-btn:hover {
-            background-color: #0077ED;
+        .continue-shopping {
+            background-color: #f0f0f0;
+            color: #333;
         }
-        @media (max-width: 768px) {
-            .checkout-container {
-                padding: 1rem;
-            }
+        .pay-now {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .pay-now:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        form {
+            display: grid;
+            gap: 10px;
+        }
+        input[type="text"], input[type="email"], select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="#">Products</a>
-            <a href="#">Support</a>
-            <a href="#">Cart</a>
-        </nav>
-    </header>
-    <main>
-        <div class="checkout-container">
-            <h1>Checkout</h1>
-            <div class="checkout-section">
-                <h2>Shipping Information</h2>
-                <form id="shippingForm">
-                    <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" id="fullName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Address</label>
-                        <input type="text" id="address" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="city">City</label>
-                        <input type="text" id="city" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="country">Country</label>
-                        <select id="country" required>
-                            <option value="">Select a country</option>
-                            <option value="US">United States</option>
-                            <option value="CA">Canada</option>
-                            <option value="UK">United Kingdom</option>
-                            <!-- Add more countries as needed -->
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="zipCode">Zip Code</label>
-                        <input type="text" id="zipCode" required>
-                    </div>
-                </form>
+    <div class="container">
+        <h1>Checkout</h1>
+        <div class="cart-summary">
+            <img id="phoneImage" src="smartphone1.png" alt="TechPhone Pro">
+            <div class="cart-details">
+                <h2>Your Cart</h2>
+                <p><strong>Model:</strong> <span id="modelName"></span></p>
+                <p><strong>Color:</strong> <span id="colorName"></span></p>
+                <p><strong>Storage:</strong> <span id="storageName"></span></p>
+                <p class="total">Total: $<span id="totalPrice"></span></p>
             </div>
-            <div class="checkout-section">
-                <h2>Payment Information</h2>
-                <form id="paymentForm">
-                    <div class="form-group">
-                        <label for="cardNumber">Card Number</label>
-                        <input type="text" id="cardNumber" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="expiryDate">Expiry Date</label>
-                        <input type="text" id="expiryDate" placeholder="MM/YY" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cvv">CVV</label>
-                        <input type="text" id="cvv" required>
-                    </div>
-                </form>
-            </div>
-            <div class="checkout-section">
-                <h2>Order Summary</h2>
-                <div class="order-summary">
-                    <ul id="orderItems"></ul>
-                    <p>Total: $<span id="orderTotal">0</span></p>
-                </div>
-            </div>
-            <button class="place-order-btn" id="placeOrderBtn">Place Order</button>
         </div>
-    </main>
+        
+        <div class="payment-options">
+            <h2>Payment Options</h2>
+            <form id="paymentForm">
+                <select id="paymentMethod" required>
+                    <option value="">Select payment method</option>
+                    <option value="credit_card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bank_transfer">Bank Transfer</option>
+                </select>
+            </form>
+        </div>
+        
+        <div class="shipping-form">
+            <h2>Shipping Information</h2>
+            <form id="shippingForm">
+                <input type="text" id="fullName" placeholder="Full Name" required>
+                <input type="text" id="address" placeholder="Address" required>
+                <input type="text" id="city" placeholder="City" required>
+                <input type="text" id="zipCode" placeholder="ZIP Code" required>
+                <input type="email" id="email" placeholder="Email" required>
+            </form>
+        </div>
+        
+        <div class="button-container">
+            <button class="button continue-shopping" onclick="continueShopping()">Continue Shopping</button>
+            <button id="payNowBtn" class="button pay-now" disabled onclick="processPayment()">Pay Now</button>
+        </div>
+    </div>
 
     <script>
-        // Retrieve cart data from localStorage
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const model = urlParams.get('model');
+            const color = urlParams.get('color');
+            const storage = urlParams.get('storage');
+            const price = urlParams.get('price');
+            const imageUrl = urlParams.get('image');
 
-        function updateOrderSummary() {
-            const orderItems = document.getElementById('orderItems');
-            const orderTotal = document.getElementById('orderTotal');
-            
-            orderItems.innerHTML = '';
-            let total = 0;
+            // Update cart summary
+            document.getElementById('modelName').textContent = model || 'TechPhone Pro';
+            document.getElementById('colorName').textContent = color || 'Black';
+            document.getElementById('storageName').textContent = storage || '128GB';
+            document.getElementById('totalPrice').textContent = price || '999';
 
-            cart.forEach(item => {
-                const li = document.createElement('li');
-                li.textContent = `${item.name} - $${item.price}`;
-                orderItems.appendChild(li);
-                total += item.price;
-            });
+            // Update phone image
+            const phoneImage = document.getElementById('phoneImage');
+            if (imageUrl) {
+                phoneImage.src = imageUrl;
+                console.log('Setting image source to:', imageUrl);
+                
+                // Add an error handler
+                phoneImage.onerror = function() {
+                    console.error('Failed to load image:', imageUrl);
+                    // Fallback to a default image
+                    phoneImage.src = 'smartphone_default.png';
+                };
+            } else {
+                console.log('No image URL provided, using default image');
+                phoneImage.src = 'smartphone_default.png';
+            }
 
-            orderTotal.textContent = total;
+            // Enable/disable Pay Now button based on form completion
+            const paymentForm = document.getElementById('paymentForm');
+            const shippingForm = document.getElementById('shippingForm');
+            const payNowBtn = document.getElementById('payNowBtn');
+
+            function checkForms() {
+                if (paymentForm.checkValidity() && shippingForm.checkValidity()) {
+                    payNowBtn.disabled = false;
+                } else {
+                    payNowBtn.disabled = true;
+                }
+            }
+
+            paymentForm.addEventListener('change', checkForms);
+            shippingForm.addEventListener('input', checkForms);
+        });
+
+        function continueShopping() {
+            window.location.href = 'index.html';
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            updateOrderSummary();
-
-            document.getElementById('placeOrderBtn').addEventListener('click', () => {
-                // Here you would typically validate the form and process the order
-                alert('Order placed successfully!');
-                // Clear the cart after successful order
-                localStorage.removeItem('cart');
-                // Redirect to a confirmation page or back to the home page
-                window.location.href = 'index.html';
-            });
-        });
+        function processPayment() {
+            alert('Payment processed successfully!');
+            // Add actual payment processing logic here
+        }
     </script>
 </body>
 </html>
