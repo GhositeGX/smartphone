@@ -27,13 +27,32 @@
             margin-bottom: 20px;
             border-radius: 5px;
         }
-        .cart-summary img {
-            max-width: 100px;
-            float: left;
-            margin-right: 15px;
+        .cart-summary {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: stretch;
+            overflow: hidden;
         }
         .cart-details {
+            flex-grow: 1;
+            padding-right: 15px;
+        }
+        .image-container {
+            width: 220px; /* Increased width */
+            margin: -15px -15px -15px 15px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cart-summary img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Changed to contain */
         }
         h1, h2 {
             color: #333;
@@ -83,13 +102,15 @@
     <div class="container">
         <h1>Checkout</h1>
         <div class="cart-summary">
-            <img id="phoneImage" src="smartphone1.png" alt="TechPhone Pro">
             <div class="cart-details">
                 <h2>Your Cart</h2>
                 <p><strong>Model:</strong> <span id="modelName"></span></p>
                 <p><strong>Color:</strong> <span id="colorName"></span></p>
                 <p><strong>Storage:</strong> <span id="storageName"></span></p>
                 <p class="total">Total: $<span id="totalPrice"></span></p>
+            </div>
+            <div class="image-container">
+                <img id="phoneImage" src="smartphone1.png" alt="TechPhone Pro">
             </div>
         </div>
         
