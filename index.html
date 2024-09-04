@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy TechPhone Pro - TechGadgets</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0071e3;
+            --background-color: #ffffff;
+            --text-color: #1d1d1f;
+            --secondary-text-color: #86868b;
+            --border-color: #d2d2d7;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.5;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        nav {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;  
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 0 10px;
+        }
+
+        main {
+            max-width: 980px;
+            margin: 80px auto 0;
+            padding: 0 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            color: var(--secondary-text-color);
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 980px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        .product-image {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .product-image img {
+            max-width: 50%;
+            height: auto;
+            transition: filter 0.3s ease;
+        }
+
+        .options {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .option-item {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .option-item:hover, .option-item.selected {
+            border-color: var(--primary-color);
+        }
+
+        .option-item h3 {
+            font-size: 21px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .option-item p {
+            font-size: 14px;
+            color: var(--secondary-text-color);
+            margin: 5px 0;
+        }
+
+        .color-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
+        .color-option.selected {
+            box-shadow: 0 0 0 2px white, 0 0 0 4px var(--primary-color);
+        }
+
+        #color-black { background-color: #1a1a1a; }
+        #color-silver { background-color: #c0c0c0; }
+        #color-rosegold { background-color: #b76e79; }
+
+        .cta {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        #addToCart {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .specs-section, .feature-section {
+            margin-bottom: 60px;
+        }
+
+        .specs-grid, .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .spec-card, .feature-item {
+            text-align: center;
+        }
+
+        .spec-card i, .feature-item i {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #f5f5f7;
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            max-width: 980px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 12px;
+            color: var(--secondary-text-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .option-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .header-hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: -1;
+        }
+
+        .header-hero-content {
+            text-align: center;
+            color: white;
+            z-index: 1;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .header-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .header-hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        main {
+            margin-top: 0; /* Remove top margin as we now have the full-height hero */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#specs">Specs</a>
+            <a href="#support">Support</a>
+        </nav>
+    </header>
+
+    <div class="header-hero">
+        <video autoplay loop muted playsinline>
+            <source src="headervideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="header-hero-content">
+            <h1>TechPhone Pro</h1>
+            <p>Experience the future of mobile technology</p>
+            <a href="#products" class="cta-btn">Explore Now</a>
+        </div>
+    </div>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>TechPhone Pro</h1>
+                <p>Experience the future of mobile technology with our most advanced smartphone yet.</p>
+                <a href="#products" class="cta-btn">Buy Now</a>
+            </div>
+        </section>
+
+        <section id="products" class="product-image">
+            <img id="phoneImage" src="smartphone1.png" alt="TechPhone Pro">
+        </section>
+
+        <section id="color-choice" class="options">
+            <h2>Choose Your Color</h2>
+            <div class="color-options">
+                <div id="color-black" class="color-option selected" data-color="black"></div>
+                <div id="color-silver" class="color-option" data-color="silver"></div>
+                <div id="color-rosegold" class="color-option" data-color="rosegold"></div>
+            </div>
+        </section>
+
+        <section class="options">
+            <h2>Choose Your Model</h2>
+            <div id="modelOptions" class="option-grid">
+                <div class="option-item selected" data-price="999">
+                    <h3>TechPhone Pro</h3>
+                    <p>6.1" OLED Display</p>
+                    <p>128GB Storage</p>
+                    <p>5G Support</p>
+                    <p>$999</p>
+                </div>
+                <div class="option-item" data-price="1099">
+                    <h3>TechPhone Pro Max</h3>
+                    <p>6.7" OLED Display</p>
+                    <p>256GB Storage</p>
+                    <p>5G Support</p>
+                    <p>$1099</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="options">
+            <h2>Choose Your Storage</h2>
+            <div id="storageOptions" class="option-grid">
+                <div class="option-item selected" data-price="0">
+                    <h3>128GB</h3>
+                    <p>$0</p>
+                </div>
+                <div class="option-item" data-price="100">
+                    <h3>256GB</h3>
+                    <p>$100</p>
+                </div>
+                <div class="option-item" data-price="200">
+                    <h3>512GB</h3>
+                    <p>$200</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Add to Cart</h2>
+            <button id="addToCart">Add to Cart - $999</button>
+        </section>
+
+        <section id="specs" class="specs-section">
+            <h2>Meet TechPhone Pro</h2>
+            <p>Experience the future of mobile technology with our most advanced smartphone yet.</p>
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <i class="fas fa-camera"></i>
+                    <h3>Pro Camera System</h3>
+                    <p>Capture stunning photos and videos with our advanced triple-lens camera system.</p>
+                </div>
+                <div class="spec-card">
+                    <i class="fas fa-microchip"></i>
+                    <h3>A16 Bionic Chip</h3>
+                    <p>Experience lightning-fast performance and efficiency with our most powerful chip yet.</p>
+                </div>
+                <div class="spec-card">
+                    <i class="fas fa-battery-full"></i>
+                    <h3>All-Day Battery Life</h3>
+                    <p>Stay connected longer with our improved battery technology and power efficiency.</p>
+                </div>
+                <div class="spec-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>5G Connectivity</h3>
+                    <p>Enjoy blazing-fast download and streaming speeds with 5G compatibility.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="support" class="feature-section">
+            <h2>Support</h2>
+            <p>Need help with your TechPhone Pro? Our support team is here to assist you.</p>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>FAQs</h3>
+                    <p>Find answers to common questions about your device.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>User Manuals</h3>
+                    <p>Download detailed user guides for your TechPhone Pro.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Software Updates</h3>
+                    <p>Keep your device up to date with the latest software.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Contact Support</h3>
+                    <p>Get in touch with our support team for personalized assistance.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 TechGadgets. All rights reserved.</p>
+            <p>Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneImage = document.getElementById('phoneImage');
+            const colorOptions = document.querySelectorAll('.color-option');
+
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove 'selected' class from all options
+                    colorOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add 'selected' class to clicked option
+                    this.classList.add('selected');
+
+                    // Update phone image color
+                    const color = this.getAttribute('data-color');
+                    updatePhoneColor(color);
+                });
+            });
+
+            function updatePhoneColor(color) {
+                let filter = 'none';
+                switch(color) {
+                    case 'silver':
+                        filter = 'brightness(1.25) saturate(0)';
+                        break;
+                    case 'rosegold':
+                        filter = 'sepia(0.4) hue-rotate(315deg) saturate(1.4) brightness(1.1)';
+                        break;
+                    // black is default, no filter needed
+                }
+                phoneImage.style.filter = filter;
+            }
+        });
+    </script>
+</body>
+</html>
+
