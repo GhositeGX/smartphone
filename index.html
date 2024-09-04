@@ -177,37 +177,125 @@
             cursor: pointer;
         }
 
-        .specs-section, .feature-section {
-            margin-bottom: 60px;
-        }
+        .specs-section {
 
-        .specs-grid, .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-
-        .spec-card, .feature-item {
+            padding: 80px 0;
             text-align: center;
         }
 
-        .spec-card i, .feature-item i {
+        .specs-section h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: var(--secondary-text-color);
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .spec-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .spec-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .spec-card i {
             font-size: 48px;
             color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .spec-card h3 {
+            font-size: 24px;
+            font-weight: 600;
             margin-bottom: 15px;
+            color: var(--text-color);
         }
 
-        footer {
-            background-color: #f5f5f7;
-            padding: 40px 0;
-        }
-
-        .footer-content {
-            max-width: 980px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 12px;
+        .spec-card p {
+            font-size: 16px;
             color: var(--secondary-text-color);
+            line-height: 1.6;
+        }
+
+        .support-section {
+            background-color: #ffffff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .support-section h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: var(--secondary-text-color);
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .support-card {
+            border-radius: 12px;
+            padding: 40px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .support-card i {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .support-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .support-card p {
+            font-size: 16px;
+            color: var(--secondary-text-color);
+            line-height: 1.6;
         }
 
         @media (max-width: 768px) {
@@ -221,6 +309,74 @@
 
             .option-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .specs-section {
+                padding: 60px 0;
+            }
+
+            .specs-section h2 {
+                font-size: 28px;
+            }
+
+            .section-description {
+                font-size: 16px;
+                margin-bottom: 40px;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .spec-card {
+                padding: 30px 20px;
+            }
+
+            .spec-card i {
+                font-size: 36px;
+            }
+
+            .spec-card h3 {
+                font-size: 20px;
+            }
+
+            .spec-card p {
+                font-size: 14px;
+            }
+
+            .support-section {
+                padding: 60px 0;
+            }
+
+            .support-section h2 {
+                font-size: 28px;
+            }
+
+            .section-description {
+                font-size: 16px;
+                margin-bottom: 40px;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .support-card {
+                padding: 30px 20px;
+            }
+
+            .support-card i {
+                font-size: 36px;
+            }
+
+            .support-card h3 {
+                font-size: 20px;
+            }
+
+            .support-card p {
+                font-size: 14px;
             }
         }
 
@@ -250,7 +406,6 @@
             color: white;
             z-index: 1;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
         }
 
@@ -267,15 +422,266 @@
         main {
             margin-top: 0; /* Remove top margin as we now have the full-height hero */
         }
+
+        .sticky-cart-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--background-color);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px 15px 20px; /* Increased right padding for close button */
+            z-index: 1000;
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(100%);
+        }
+
+        .sticky-cart-bar.visible {
+            transform: translateY(0);
+        }
+
+        .cart-product {
+            display: flex;
+            align-items: center;
+        }
+
+        .sticky-phone-image {
+            width: 50px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .cart-summary {
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+        }
+
+        .cart-price {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #stickyBuyNow {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .close-sticky {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cart-bar {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 10px;
+            }
+
+            .cart-product, .cart-price {
+                margin-bottom: 10px;
+            }
+        }
+
+        .contact-section {
+            background-color: #f5f5f7;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #contactForm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #contactForm input,
+        #contactForm textarea {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #contactForm textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #005cbf;
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 60px 0;
+            }
+
+            .contact-section h2 {
+                font-size: 28px;
+            }
+        }
+
+        .footer {
+            background-color: #f5f5f7;
+            padding: 60px 0 20px;
+            color: #1d1d1f;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .footer-info {
+            margin-bottom: 30px;
+        }
+
+        .footer-info h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #1d1d1f;
+        }
+
+        .footer-info p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #515154;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            color: #1d1d1f;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #0071e3;
+        }
+
+        .footer-links {
+            margin-bottom: 30px;
+        }
+
+        .footer-links h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #1d1d1f;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #515154;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #0071e3;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #d2d2d7;
+            font-size: 12px;
+            color: #86868b;
+        }
+
+        @media (max-width: 768px) {
+            .footer-links ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .full-width-image {
+            width: 100%;
+            margin: 60px 0;
+            overflow: hidden;
+        }
+
+        .full-width-phone {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .full-width-image {
+                margin: 40px 0;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#products">Products</a>
-            <a href="#specs">Specs</a>
-            <a href="#support">Support</a>
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#products" class="nav-link">Products</a>
+            <a href="#specs" class="nav-link">Specs</a>
+            <a href="#support" class="nav-link">Support</a>
         </nav>
     </header>
 
@@ -287,7 +693,7 @@
         <div class="header-hero-content">
             <h1>TechPhone Pro</h1>
             <p>Experience the future of mobile technology</p>
-            <a href="#products" class="cta-btn">Explore Now</a>
+            <a href="#products" id="exploreButton" class="cta-btn">Explore Now</a>
         </div>
     </div>
 
@@ -358,7 +764,7 @@
 
         <section id="specs" class="specs-section">
             <h2>Meet TechPhone Pro</h2>
-            <p>Experience the future of mobile technology with our most advanced smartphone yet.</p>
+            <p class="section-description">Experience the future of mobile technology with our most advanced smartphone yet.</p>
             <div class="specs-grid">
                 <div class="spec-card">
                     <i class="fas fa-camera"></i>
@@ -383,55 +789,105 @@
             </div>
         </section>
 
-        <section id="support" class="feature-section">
+        <section id="support" class="support-section">
             <h2>Support</h2>
-            <p>Need help with your TechPhone Pro? Our support team is here to assist you.</p>
-            <div class="feature-grid">
-                <div class="feature-item">
+            <p class="section-description">Need help with your TechPhone Pro? Our support team is here to assist you.</p>
+            <div class="support-grid">
+                <div class="support-card">
+                    <i class="fas fa-question-circle"></i>
                     <h3>FAQs</h3>
                     <p>Find answers to common questions about your device.</p>
                 </div>
-                <div class="feature-item">
+                <div class="support-card">
+                    <i class="fas fa-book"></i>
                     <h3>User Manuals</h3>
                     <p>Download detailed user guides for your TechPhone Pro.</p>
                 </div>
-                <div class="feature-item">
+                <div class="support-card">
+                    <i class="fas fa-sync"></i>
                     <h3>Software Updates</h3>
                     <p>Keep your device up to date with the latest software.</p>
                 </div>
-                <div class="feature-item">
-                    <h3>Contact Support</h3>
-                    <p>Get in touch with our support team for personalized assistance.</p>
-                </div>
+
             </div>
         </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Contact Us</h2>
+            <p class="section-description">Have questions? We're here to help. Reach out to us anytime.</p>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>TechGadgets</h3>
+                    <p>Bringing you the latest in mobile technology.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#specs">Specs</a></li>
+                        <li><a href="#support">Support</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 TechGadgets. All rights reserved.</p>
+            </div>
+        </footer>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2023 TechGadgets. All rights reserved.</p>
-            <p>Privacy Policy | Terms of Service</p>
+    <div id="stickyCartBar" class="sticky-cart-bar">
+        <div class="cart-product">
+            <img id="stickyPhoneImage" src="smartphone1.png" alt="TechPhone Pro" class="sticky-phone-image">
+            <div class="cart-summary">
+                <span id="selectedModel">TechPhone Pro</span>
+                <span id="selectedColor">Black</span>
+                <span id="selectedStorage">128GB</span>
+            </div>
         </div>
-    </footer>
+        <div class="cart-price">
+            <span id="cartPrice">$999</span>
+        </div>
+        <button id="stickyBuyNow" class="cta-btn">Buy Now</button>
+        <button id="closeSticky" class="close-sticky">&times;</button>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const phoneImage = document.getElementById('phoneImage');
             const colorOptions = document.querySelectorAll('.color-option');
+            const modelOptions = document.querySelectorAll('#modelOptions .option-item');
+            const storageOptions = document.querySelectorAll('#storageOptions .option-item');
+            const addToCartButton = document.getElementById('addToCart');
+            const stickyCartBar = document.getElementById('stickyCartBar');
+            const selectedModelSpan = document.getElementById('selectedModel');
+            const selectedColorSpan = document.getElementById('selectedColor');
+            const selectedStorageSpan = document.getElementById('selectedStorage');
+            const cartPriceSpan = document.getElementById('cartPrice');
+            const stickyPhoneImage = document.getElementById('stickyPhoneImage');
+            const stickyBuyNow = document.getElementById('stickyBuyNow');
+            const closeSticky = document.getElementById('closeSticky');
+            const exploreButton = document.getElementById('exploreButton');
 
-            colorOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    // Remove 'selected' class from all options
-                    colorOptions.forEach(opt => opt.classList.remove('selected'));
-                    
-                    // Add 'selected' class to clicked option
-                    this.classList.add('selected');
-
-                    // Update phone image color
-                    const color = this.getAttribute('data-color');
-                    updatePhoneColor(color);
-                });
-            });
+            let selectedModel = 999;
+            let selectedStorage = 0;
 
             function updatePhoneColor(color) {
                 let filter = 'none';
@@ -445,6 +901,140 @@
                     // black is default, no filter needed
                 }
                 phoneImage.style.filter = filter;
+                stickyPhoneImage.style.filter = filter;
+            }
+
+            function updatePrice() {
+                const totalPrice = selectedModel + selectedStorage;
+                addToCartButton.textContent = `Add to Cart - $${totalPrice}`;
+                cartPriceSpan.textContent = `$${totalPrice}`;
+            }
+
+            function updateStickyCart() {
+                const modelName = document.querySelector('#modelOptions .option-item.selected h3').textContent;
+                const colorName = document.querySelector('.color-option.selected').getAttribute('data-color');
+                const storageName = document.querySelector('#storageOptions .option-item.selected h3').textContent;
+                const totalPrice = selectedModel + selectedStorage;
+
+                selectedModelSpan.textContent = modelName;
+                selectedColorSpan.textContent = colorName.charAt(0).toUpperCase() + colorName.slice(1);
+                selectedStorageSpan.textContent = storageName;
+                cartPriceSpan.textContent = `$${totalPrice}`;
+                
+                // Update the sticky phone image color
+                updatePhoneColor(colorName);
+            }
+
+            function showStickyCart() {
+                stickyCartBar.classList.add('visible');
+            }
+
+            function hideStickyCart() {
+                stickyCartBar.classList.remove('visible');
+            }
+
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    colorOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    const color = this.getAttribute('data-color');
+                    updatePhoneColor(color);
+                    updateStickyCart();
+                });
+            });
+
+            modelOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    modelOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedModel = parseInt(this.getAttribute('data-price'));
+                    updatePrice();
+                    updateStickyCart();
+                });
+            });
+
+            storageOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    storageOptions.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedStorage = parseInt(this.getAttribute('data-price'));
+                    updatePrice();
+                    updateStickyCart();
+                });
+            });
+
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.scrollY;
+                const productSection = document.getElementById('products');
+                const productSectionTop = productSection.offsetTop;
+
+                if (scrollPosition > productSectionTop) {
+                    showStickyCart();
+                } else {
+                    hideStickyCart();
+                }
+            });
+
+            function openCheckout() {
+                const modelName = document.querySelector('#modelOptions .option-item.selected h3').textContent;
+                const colorName = document.querySelector('.color-option.selected').getAttribute('data-color');
+                const storageName = document.querySelector('#storageOptions .option-item.selected h3').textContent;
+                const totalPrice = selectedModel + selectedStorage;
+                const imageUrl = document.getElementById('phoneImage').src;
+
+                const queryParams = new URLSearchParams({
+                    model: modelName,
+                    color: colorName,
+                    storage: storageName,
+                    price: totalPrice,
+                    image: imageUrl
+                });
+
+                window.location.href = `payment.html?${queryParams.toString()}`;
+            }
+
+            addToCartButton.addEventListener('click', openCheckout);
+            stickyBuyNow.addEventListener('click', openCheckout);
+
+            // Smooth scrolling for navbar links
+            document.querySelectorAll('.nav-link').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Close sticky cart
+            closeSticky.addEventListener('click', function() {
+                hideStickyCart();
+            });
+
+            // Initial update of sticky cart
+            updateStickyCart();
+
+            // Contact form submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Here you would typically send the form data to your server
+                alert('Thank you for your message. We will get back to you soon!');
+                this.reset();
+            });
+
+            if (exploreButton) {
+                exploreButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             }
         });
     </script>
